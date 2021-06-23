@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int A , B;
+    cout<<"Igrach 1 da vuvede chisloto si:"<<endl;
+    cin>>A;
+    cout<<"Igrach 2 da vuvede chisloto si:"<<endl;
+    cin>>B;
+
+    int a[4], b[4];
+    a[0]=A/1000;
+    a[1]=(A/100)%10;
+    a[2]=(A/10)%10;
+    a[3]=A%10;
+
+    b[0]=B/1000;
+    b[1]=(B/100)%10;
+    b[2]=(B/10)%10;
+    b[3]=B%10;
+
+    int kravi=0, bikove=0, igrach=1;
+
+    while(bikove<4){
+        bikove =0;
+        kravi=0;
+
+        int purvi, vtori, c[4],d[4];
+
+        if(igrach%2==1){
+           cout<<"Igrach 1 da napravi svoq opit:"<<endl;
+           cin>>purvi;
+
+            c[0]=purvi/1000;
+            c[1]=(purvi/100)%10;
+            c[2]=(purvi/10)%10;
+            c[3]=purvi%10;
+
+            for(int i=0;i<4;i++){
+                for(int j=0;j<4;j++){
+                    if(c[i]==b[j]){
+                        if(i==j){
+                            bikove++;
+                        }else{
+                            kravi++;
+                        }
+                    }
+                }
+            }
+            cout<<"Ima "<<bikove<<" bika i "<<kravi<<" kravi."<<endl;
+
+        }else{
+           cout<<"Igrach 2 da napravi svoq opit:"<<endl;
+           cin>>vtori;
+
+            d[0]=vtori/1000;
+            d[1]=(vtori/100)%10;
+            d[2]=(vtori/10)%10;
+            d[3]=vtori%10;
+
+            for(int i=0;i<4;i++){
+                for(int j=0;j<4;j++){
+                    if(d[i]==a[j]){
+                        if(i==j){
+                            bikove++;
+                        }else{
+                            kravi++;
+                        }
+                    }
+                }
+            }
+            cout<<"Ima "<<bikove<<" bika i "<<kravi<<" kravi."<<endl;
+        }
+
+        igrach++;
+    }
+
+
+   return 0;
+}
